@@ -1,0 +1,7 @@
+Algebra is a branch of mathematics that deals with variables and equations.
+For example, solving 3x + 2 = 11 involves isolating the variable x.
+Step 1: Subtract 2 from both sides → 3x = 9
+Step 2: Divide both sides by 3 → x = 3
+The distributive property: a(b + c) = ab + ac.
+
+	
