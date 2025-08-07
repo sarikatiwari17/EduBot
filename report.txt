@@ -1,0 +1,84 @@
+✅ Approach:
+The Classroom Tutor Agent (EduBot) was built with the goal of providing subject-wise intelligent tutoring through a simple, interactive chat interface. The approach combines RAG (Retrieval-Augmented Generation) using local documents and a local LLM (Gemma 2B via Ollama) to ensure data privacy and offline functionality.
+
+Key Steps in the Approach:
+Document Preprocessing:
+
+Subject-specific .txt files are added to a /data folder (e.g., math.txt, science.txt).
+
+These documents are embedded using SentenceTransformer and stored in ChromaDB for fast vector search.
+
+Subject Routing:
+
+User selects a subject via the frontend.
+
+The backend maps each subject to its respective ChromaDB collection.
+
+Question Handling:
+
+When a user asks a question, it is embedded and matched against stored vectors.
+
+Top relevant context snippets are retrieved from ChromaDB.
+
+Answer Generation:
+
+The retrieved context and the question are passed to a local LLM (Gemma 2B via Ollama) for answer generation.
+
+Hint and Feedback Logic:
+
+If a student gives a wrong answer or struggles, the system provides contextual hints.
+
+Progress tracking is implemented to monitor how many answers were correct/incorrect.
+
+Frontend Interface:
+
+Built with Streamlit, the UI mimics a chatbot and includes subject selection, chat history, and hint support.
+
+
+
+🚀 Usage:
+Follow these steps to run the Classroom Tutor Agent on your local machine:
+
+1. Clone the repository
+
+git clone https://github.com/your-username/EduBot.git
+cd EduBot
+
+2. Install dependencies
+Install all required Python packages:
+
+pip install -r requirements.txt
+Make sure you have Ollama installed and running locally with Gemma 2B pulled:
+
+ollama pull gemma:2b
+
+3. Add Learning Material
+Add .txt files (like math.txt, science.txt) inside the /data folder.
+Each file represents a subject and should contain structured learning content.
+
+4. Run Backend
+Navigate to the backend folder and run:
+
+python backend.py
+This will start the backend API (usually on http://localhost:8000/ask).
+
+5. Launch Frontend (Streamlit UI)
+In a new terminal, go to the frontend folder and run:
+
+streamlit run app.py
+The UI will open in your browser. Select a subject, ask questions, and get interactive answers and hints.
+
+🤖 LLM & Embedding Model Requirements
+
+Local LLM via Ollama:
+Ollama must be installed and running:
+
+You must pull the model
+
+  ollama pull gemma:2b
+
+Embedding Model:
+Uses all-MiniLM-L6-v2 from SentenceTransformers:
+
+  SentenceTransformer('all-MiniLM-L6-v2')
+
