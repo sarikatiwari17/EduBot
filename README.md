@@ -15,3 +15,17 @@ LLM: Gemma 2B (via Ollama)
 Database: ChromaDB for vector search
 Deployment: Local system
 
+🧪 How it Works
+User selects a subject from the UI.
+
+Their question is embedded using SentenceTransformer.
+
+ChromaDB retrieves relevant documents from the selected subject.
+
+The local LLM (Gemma 2B) generates an answer.
+
+If the answer is incorrect, a hint is generated and shown.
+
+Performance data is stored for progress tracking.
+
+
